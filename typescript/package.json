@@ -1,0 +1,12 @@
+{
+  "name": "algoritmos-estrutura-de-dados",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx nodemon ./test.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
