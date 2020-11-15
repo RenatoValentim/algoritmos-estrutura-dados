@@ -9,7 +9,7 @@ export class ArrayImpl<T> {
    * 
    * This method get the array values.
    */
-  get getArray(): T[] {
+  get getArrayValues(): T[] {
     return this.array;
   }
 
@@ -69,9 +69,26 @@ export class ArrayImpl<T> {
     return this.reIndex(this.array);
   }
 
-  spliceImpl(index: number, quantityToDelete: number): T[] {
-
-    return this.array;
+  /**
+   * 
+   * This method remove or add the value(s) from the informed index.
+   * @param fromIndex - Index from where the changes will take place.
+   * @param quantityToDelete - Quantity to be deleted from the index.
+   * @param valuesToAdd - Values to be add from the index.
+   */
+  spliceImpl(fromIndex: number, quantityToDelete: number, ...valuesToAdd: T[]): T[] {
+    for (let arrayIndex = 0; arrayIndex < this.array.length; arrayIndex++) {
+      if (arrayIndex === fromIndex) {
+        const takeUntilDelete = quantityToDelete + fromIndex;
+        
+        for (let indexDelete = fromIndex; indexDelete < takeUntilDelete; indexDelete++) {
+          delete this.array[indexDelete];
+        }
+      }
+      
+    }
+    
+    return this.reIndex(this.array);
   }
 
   /**
