@@ -71,7 +71,7 @@ export class ArrayImpl<T> {
 
   /**
    * 
-   * This method remove or add the value(s) from the informed index.
+   * This method remove or add the value(s) based informed index.
    * @param fromIndex - Index from where the changes will take place.
    * @param quantityToDelete - Quantity to be deleted from the index.
    * @param valuesToAdd - Values to be add from the index.
@@ -80,12 +80,23 @@ export class ArrayImpl<T> {
     for (let arrayIndex = 0; arrayIndex < this.array.length; arrayIndex++) {
       if (arrayIndex === fromIndex) {
         const takeUntilDelete = quantityToDelete + fromIndex;
-        
+        const newArrayLength = this.array.length + valuesToAdd.length;
+        const positionToAdd = fromIndex + 1;
+
         for (let indexDelete = fromIndex; indexDelete < takeUntilDelete; indexDelete++) {
           delete this.array[indexDelete];
         }
+
+        for (let indexAdd = newArrayLength; indexAdd > positionToAdd; indexAdd--) {
+          const previousPosition = indexAdd - 1;
+
+          this.array[indexAdd] = this.array[previousPosition];
+        }
+
+        for (let index = 0; index < valuesToAdd.length; index++) {
+          this.array[positionToAdd] = valuesToAdd[index];
+        }
       }
-      
     }
     
     return this.reIndex(this.array);
