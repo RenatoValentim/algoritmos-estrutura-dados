@@ -1,7 +1,7 @@
 export class ArrayImpl<T> {
   private array: T[];
   
-  constructor(array: T[]) {
+  constructor(array?: T[]) {
     this.array = array;
   }
 
