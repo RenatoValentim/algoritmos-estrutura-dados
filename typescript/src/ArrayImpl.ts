@@ -7,14 +7,6 @@ export class ArrayImpl<T> {
 
   /**
    * 
-   * This method get the array values.
-   */
-  get getArrayValues(): T[] {
-    return this.array;
-  }
-
-  /**
-   * 
    * This method adda a value at the end of the array.
    * @param value - value that will be added to the end of the array
    */
