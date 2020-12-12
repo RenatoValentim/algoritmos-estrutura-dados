@@ -7,5 +7,5 @@ Estudos de algoritmos e estrutura de dados baseados no livro [Estruturas de dado
 
 - Para executar o live-reload faça
 ```bash
-npm test
+npm start
 ```
