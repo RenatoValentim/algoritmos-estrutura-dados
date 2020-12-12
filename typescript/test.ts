@@ -1,5 +1,12 @@
+import { StackBasedObject } from './src/StackBasedObject';
+import { StackBasedArray } from './src/StackBasedArray';
 import { ArrayImpl } from './src/ArrayImpl';
 
-const array = new ArrayImpl(['a', 'b', 'c']);
+const arrayImpl = new ArrayImpl();
+console.log(arrayImpl);
 
-console.log(array.getArrayValues);
+const stackBasedArray = new StackBasedArray();
+console.log(stackBasedArray);
+
+const stackBasedObject = new StackBasedObject();
+console.log(stackBasedObject);
