@@ -2,11 +2,24 @@ import { StackBasedObject } from './src/StackBasedObject';
 import { StackBasedArray } from './src/StackBasedArray';
 import { ArrayImpl } from './src/ArrayImpl';
 
-const arrayImpl = new ArrayImpl();
-console.log(arrayImpl);
+function decimalToBinary(value: number): string {
+  const remnants = new StackBasedObject<number>();
 
-const stackBasedArray = new StackBasedArray();
-console.log(stackBasedArray);
+  let remnant: number;
+  let binaryString = '';
 
-const stackBasedObject = new StackBasedObject();
-console.log(stackBasedObject);
+  while (value > 0) {
+    remnant = Math.floor(value % 2);
+    remnants.push(remnant);
+    value = Math.floor(value / 2);
+  }
+
+  while (!remnants.isEmpty()) {
+    binaryString += remnants.pop().toString();
+  }
+
+  return binaryString;
+}
+
+const binaryValue = decimalToBinary(10);
+console.log(binaryValue);
