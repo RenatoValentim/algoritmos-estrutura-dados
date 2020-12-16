@@ -6,6 +6,10 @@ public class ArrayImpl<T> {
 
   public ArrayImpl(T[] array) {
     this.array = array;
+    this.assignSize(this.array);
+  }
+  
+  private void assignSize(T[] array) {
     this.size = array.length;
   }
 
@@ -13,7 +17,14 @@ public class ArrayImpl<T> {
     return this.array;
   }
 
-  public int length() {
+  public int getLength() {
     return this.size;
+  }
+
+  public T[] pushImpl(T value) {
+    this.array[this.size] = value;
+    this.assignSize(this.array);
+
+    return this.array;
   }
 }
